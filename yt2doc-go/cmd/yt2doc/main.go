@@ -23,7 +23,7 @@ func main() {
 	ctx := context.Background()
 
 	// 2. Step One: Segmenting (Download + Transcribe + Chunk)
-	fmt.Println("🚀 Starting pipeline: Download and Transcription...")
+	fmt.Println(" Starting pipeline: Download and Transcription...")
 	segSvc := segmenter.NewSegmenter(ctx)
 	doc, err := segSvc.Segment(segmenter.SegmenterParams{URL: *videoURL})
 	if err != nil {
@@ -31,7 +31,7 @@ func main() {
 	}
 
 	// 3. Step Two: Formatting (Final Output)
-	fmt.Printf("📝 Generating Markdown: %s\n", *outputFile)
+	fmt.Printf("Generating Markdown: %s\n", *outputFile)
 	fmtSvc, err := formatter.NewFormatter()
 	if err != nil {
 		log.Fatalf("Failed to initialize Formatter: %v", err)
@@ -41,5 +41,5 @@ func main() {
 		log.Fatalf("Formatting failed: %v", err)
 	}
 
-	fmt.Println("✨ Done! Your document is ready.")
+	fmt.Println(" Done! Your document is ready.")
 }
